@@ -44,14 +44,13 @@ async function run() {
   core.debug(`sha : ${context.sha}`);
   core.debug(`workflow : ${context.workflow}`);
 
-  await setEnv();
-
   const success = await vercelAlias();
   if (success) {
     core.info("set aliasing success output");
     core.setOutput("success", true);
   } else {
     core.warning("get aliasing error");
+    core.setOutput("success", false);
   }
 }
 
