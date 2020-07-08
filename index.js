@@ -10,6 +10,7 @@ const vercelPreviewUrl = core.getInput("vercel-preview-url", {
   required: true
 });
 const vercelTargetUrl = core.getInput("vercel-target-url", { required: true });
+const vercelScope = core.getInput("scope");
 
 async function vercelAlias() {
   let myOutput = "";
@@ -27,11 +28,21 @@ async function vercelAlias() {
     }
   };
 
-  await exec.exec(
-    "npx",
-    ["vercel", "alias", vercelPreviewUrl, vercelTargetUrl, "-t", vercelToken],
-    options
-  );
+  const argsArray = [
+    "vercel",
+    "alias",
+    vercelPreviewUrl,
+    vercelTargetUrl,
+    "-t",
+    vercelToken
+  ];
+
+  if (vercelScope) {
+    core.info("using scope");
+    argsArray.push("--scope", vercelScope);
+  }
+
+  await exec.exec("npx", argsArray, options);
 
   return myOutput;
 }

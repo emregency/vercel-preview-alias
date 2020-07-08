@@ -10,6 +10,9 @@ inputs:
   vercel-target-url:
     required: true
     description: "Target URL that you want e.g. beta.example.com"
+  vercel-scope:
+    required: false
+    description: "If in a Team, the scope of the team"
 outputs:
   success:
     description: "Is true if the aliasing is successful"
