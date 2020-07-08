@@ -29,7 +29,7 @@ async function vercelAlias() {
 
   await exec.exec(
     "npx",
-    ["vercel alias", vercelPreviewUrl, vercelTargetUrl, "-t", vercelToken],
+    ["vercel", "alias", vercelPreviewUrl, vercelTargetUrl, "-t", vercelToken],
     options
   );
 
