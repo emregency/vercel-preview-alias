@@ -2,14 +2,8 @@ name: "Vercel Preview Alias"
 description: "Alias Vercel Preview URLs"
 inputs:
   vercel-token:
-    description: "Vercel token"
+    description: "Vercel token e.g. https://vercel.com/account/tokens"
     required: true
-  vercel-project-id:
-    required: true
-    description: "Vercel CLI 17+, ❗️  The `name` property in vercel.json is deprecated (https://zeit.ink/5F)"
-  vercel-org-id:
-    required: true
-    description: "Vercel CLI 17+, ❗️  The `name` property in vercel.json is deprecated (https://zeit.ink/5F)"
   vercel-preview-url:
     required: true
     description: "Preview URL that you want to alias. If you have Vercel GitHub App, it's in the GitHub event e.g. github.event.deployment_status.target_url"

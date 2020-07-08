@@ -10,20 +10,6 @@ const vercelPreviewUrl = core.getInput("vercel-preview-url", {
   required: true
 });
 const vercelTargetUrl = core.getInput("vercel-target-url", { required: true });
-const vercelOrgId = core.getInput("vercel-org-id", { required: true });
-const vercelProjectId = core.getInput("vercel-project-id", { required: true });
-
-async function setEnv() {
-  core.info("set environment for vercel cli");
-  if (vercelOrgId) {
-    core.info("set env variable : VERCEL_ORG_ID");
-    core.exportVariable("VERCEL_ORG_ID", vercelOrgId);
-  }
-  if (vercelProjectId) {
-    core.info("set env variable : VERCEL_PROJECT_ID");
-    core.exportVariable("VERCEL_PROJECT_ID", vercelProjectId);
-  }
-}
 
 async function vercelAlias() {
   let myOutput = "";
