@@ -10,7 +10,7 @@ const vercelPreviewUrl = core.getInput("vercel-preview-url", {
   required: true
 });
 const vercelTargetUrl = core.getInput("vercel-target-url", { required: true });
-const vercelScope = core.getInput("scope");
+const vercelScope = core.getInput("vercel-scope");
 
 async function vercelAlias() {
   let myOutput = "";
